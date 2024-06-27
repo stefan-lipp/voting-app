@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # Variables
-resourceGroup="acdnd-c4-project"
-location="westus"
+resourceGroup="voting"
+location="germanywestcentral"
 osType="Ubuntu2204"
-vmssName="udacity-vmss"
-adminName="udacityadmin"
-storageAccount="udacitydiag$RANDOM"
+vmssName="voting-vmss"
+adminName="votingadmin"
+storageAccount="votingstorage"
 bePoolName="$vmssName-bepool"
 lbName="$vmssName-lb"
 lbRule="$lbName-network-rule"
-nsgName="$vmssName-nsg"
+nsgName="$resourceGroup-security-group"
 vnetName="$vmssName-vnet"
 subnetName="$vnetName-subnet"
 probeName="tcpProbe"
@@ -18,9 +18,6 @@ vmSize="Standard_B1s"
 storageType="Standard_LRS"
 
 # Create resource group. 
-# This command will not work for the Cloud Lab users. 
-# Cloud Lab users can comment this command and 
-# use the existing Resource group name, such as, resourceGroup="cloud-demo-153430" 
 echo "STEP 0 - Creating resource group $resourceGroup..."
 
 az group create \
